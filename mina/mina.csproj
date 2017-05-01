@@ -62,9 +62,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="corp.json.cs">
+      <DependentUpon>corp.json</DependentUpon>
+    </Compile>
     <Compile Include="database.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypedJSON Include="corp.json">
+      <Generator>MsBuild:Compile</Generator>
+    </TypedJSON>
+    <None Include="wwwroot\start\start.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(StarcounterBin)\Starcounter.MsBuild.targets" />

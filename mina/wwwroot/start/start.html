@@ -1,0 +1,12 @@
+﻿<link rel="import" href="/sys/polymer/polymer.html">
+
+<template>
+    <template is="dom-bind">
+        <h2>Welcome</h2>
+        <h3>Create main Corporation</h3>
+        <label>Name : </label>
+        <input value="{{model.newCorpName$::input}}">
+        <button value="{{model.save$::click}}" onmousedown="++this.value">Create</button>
+
+    </template>
+</template>
