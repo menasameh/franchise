@@ -1,5 +1,7 @@
 {
   "Html": "/start/corpView.html",
   "name": "",
-  "officies": [ { } ]
+  "save$": 0,
+  "newOfficeName$": "",
+  "Offices": [ { } ]
 }

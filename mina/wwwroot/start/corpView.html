@@ -1,10 +1,23 @@
 ﻿<template>
-    
-    <h1>Hello</h1>
-    <template is="dom-repeat" items="{{model.officies}}">
-        <div>
-            <starcounter-include partial="{{item}}"></starcounter-include>
-        </div>
-    </template>
+    <template is="dom-bind">
+        <h1>Welcome to {{model.name}} Franchise Offices</h1>
+        <label>Sort on:</label>
+        <button>number of homes</button>
+        <button>total commission</button>
+        <button>average commission</button>
+        <button>trend</button>
 
+        <hr />
+
+        <template is="dom-repeat" items="{{model.Offices}}">
+            <div>
+                <starcounter-include partial="{{item}}"></starcounter-include>
+            </div>
+        </template>
+        <hr />
+            <h3>new Office</h3>
+            <label>Name : </label>
+            <input value="{{model.newOfficeName$::input}}">
+            <button value="{{model.save$::click}}" onmousedown="++this.value">Create</button>
+    </template>
 </template>

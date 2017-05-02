@@ -43,7 +43,7 @@ namespace mina
 
     public class Corporation : entity
     {
-        public IEnumerable<Office> officies { get { return Db.SQL<Office>("SELECT O FROM Office O WHERE O.corp = ?", this); } }
+        public IEnumerable<Office> Offices { get { return Db.SQL<Office>("SELECT O FROM Office O WHERE O.corp = ?", this); } }
     }
 
 

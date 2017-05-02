@@ -69,6 +69,9 @@
       <DependentUpon>corporation.json</DependentUpon>
     </Compile>
     <Compile Include="database.cs" />
+    <Compile Include="office.json.cs">
+      <DependentUpon>office.json</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -77,6 +80,9 @@
       <Generator>MsBuild:Compile</Generator>
     </TypedJSON>
     <TypedJSON Include="corp.json">
+      <Generator>MsBuild:Compile</Generator>
+    </TypedJSON>
+    <TypedJSON Include="office.json">
       <Generator>MsBuild:Compile</Generator>
     </TypedJSON>
     <None Include="wwwroot\start\start.html" />
