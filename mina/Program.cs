@@ -1,5 +1,7 @@
 ﻿using System;
 using Starcounter;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace mina
 {
@@ -14,22 +16,27 @@ namespace mina
             Handle.GET("/mina/start",
                 () =>
                 {
-                    return Db.Scope(() =>
-                    {
-                        var corp = Db.SQL<Corporation>("SELECT C FROM Corporation C");
-                        var json = new corp
-                        {
-                            corps = corp
-                        };
+                    var corp = Db.SQL<Corporation>("SELECT C FROM Corporation C").First;
 
-                        if (Session.Current == null)
-                        {
-                            Session.Current = new Session(SessionOptions.PatchVersioning);
-                        }
-                        json.Session = Session.Current;
-                        return json;
+
+                    var elem = new corporation
+                    {
+                        Data = corp
+                    };
+
+                    var json = new corp
+                    {
+                        corpe = elem
+                    };
+
+
+                    if (Session.Current == null)
+                    {
+                        Session.Current = new Session(SessionOptions.PatchVersioning);
+                    }
+                    json.Session = Session.Current;
+                    return json;
                     });
-                });
         }
     }
 }

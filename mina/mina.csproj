@@ -65,15 +65,27 @@
     <Compile Include="corp.json.cs">
       <DependentUpon>corp.json</DependentUpon>
     </Compile>
+    <Compile Include="corporation.json.cs">
+      <DependentUpon>corporation.json</DependentUpon>
+    </Compile>
     <Compile Include="database.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <TypedJSON Include="corporation.json">
+      <Generator>MsBuild:Compile</Generator>
+    </TypedJSON>
     <TypedJSON Include="corp.json">
       <Generator>MsBuild:Compile</Generator>
     </TypedJSON>
     <None Include="wwwroot\start\start.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\start\corpView.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\start\officeView.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(StarcounterBin)\Starcounter.MsBuild.targets" />

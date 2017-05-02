@@ -1,0 +1,10 @@
+﻿<template>
+    
+    <h1>Hello</h1>
+    <template is="dom-repeat" items="{{model.officies}}">
+        <div>
+            <starcounter-include partial="{{item}}"></starcounter-include>
+        </div>
+    </template>
+
+</template>

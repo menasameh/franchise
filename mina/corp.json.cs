@@ -1,3 +1,4 @@
+using System;
 using Starcounter;
 
 namespace mina
@@ -6,7 +7,6 @@ namespace mina
     {
         void Handle(Input.save action)
         {
-            //Transaction.Commit();
             Db.Transact(() =>
             {
                 new Corporation
@@ -15,5 +15,8 @@ namespace mina
                 };
             });
         }
+
+       
+
     }
 }
