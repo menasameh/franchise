@@ -3,7 +3,7 @@
   "name": "",
   "save$": 0,
   "newOfficeName$": "",
-  "Offices": [
+  "offices": [
     {
       "Html": "/start/officeView.html",
       "name": "",

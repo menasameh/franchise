@@ -1,5 +1,103 @@
 ﻿<template>
     <template is="dom-bind">
-           {{model.name}}
+        <a href="/mina/corp">< < back to Corporation</a>
+        <h2>Edit {{model.name$}} Settings:</h2>
+
+
+        <label>Name : </label>
+        <input Value="{{model.name$::input}}" />
+        <br />
+
+        <label>Street : </label>
+        <input Value="{{model.street$::input}}" />
+        <br />
+
+        <label>Number : </label>
+        <input Value="{{model.number$::input}}" />
+        <br />
+
+        <label>Zip Code : </label>
+        <input Value="{{model.zipCode$::input}}" />
+        <br />
+
+        <label>City : </label>
+        <input Value="{{model.city$::input}}" />
+        <br />
+
+        <label>Country : </label>
+        <input Value="{{model.country$::input}}" />
+        <br />
+
+        <label>Address : {{model.address}}</label>
+        <br />
+
+        <button value="{{model.saveSettings$::click}}" onmousedown="++this.value">Save</button>     
+
+
+
+
+
+
+        <h2>Register new Home:</h2>
+
+        <h4>Home Info</h4>
+        <label>Name : </label>
+        <input Value="{{model.homeName$::input}}" />
+        <br />
+
+        <label>Street : </label>
+        <input Value="{{model.homeStreet$::input}}" />
+        <br />
+
+        <label>Number : </label>
+        <input Value="{{model.homeNumber$::input}}" />
+        <br />
+
+        <label>Zip Code : </label>
+        <input Value="{{model.homeZipCode$::input}}" />
+        <br />
+
+        <label>City : </label>
+        <input Value="{{model.homeCity$::input}}" />
+        <br />
+
+        <label>Country : </label>
+        <input Value="{{model.homeCountry$::input}}" />
+        <br />
+
+        <label>Address : {{model.homeAddress}}</label>
+        <br />
+
+        <h4>Transaction Info</h4>
+
+        <label>Date (Format:YYYY-MM-DD) : </label>
+        <input Value="{{model.date$::input}}" />
+        <br />
+
+        <label>Sales Price : </label>
+        <input Value="{{model.price$::input}}" />
+        <br />
+
+        <label>Commission : </label>
+        <input Value="{{model.commission$::input}}" />
+        <br />
+
+        <button value="{{model.addHome$::click}}" onmousedown="++this.value">Register</button> 
+        
+        
+        <hr />
+            
+        <template is="dom-repeat" items="{{model.homes}}">
+            <table>
+                <tr>
+                    <td>{{item.date}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.commission}}</td>
+                    <td>{{item.address}}</td>
+                </tr>
+            </table>
+        </template>
+
+
     </template>
 </template>

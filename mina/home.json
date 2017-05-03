@@ -1,0 +1,10 @@
+{
+  "name$": "",
+  "street$": "",
+  "number$": 0,
+  "zipCode$": 0,
+  "city$": "",
+  "country$": "",
+  "price$": 0.0,
+  "commission$": 0.0
+}

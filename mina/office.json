@@ -1,9 +1,31 @@
 {
   "Html": "/start/officeView.html",
-  "name": "",
-  "street" : "",
-  "number" : 0,
-  "zipCode" : 0,
-  "city" : "",
-  "country" : ""
+  "name$": "",
+  "street$" : "",
+  "number$" : 0,
+  "zipCode$" : 0,
+  "city$" : "",
+  "country$": "",
+  "address": "",
+  "homes": [
+    {
+      "date": "",
+      "price": 0.0,
+      "commission": 0.0,
+      "address": ""
+    }
+  ],
+  "saveSettings$": 0,
+
+  "homeName$": "",
+  "homeStreet$" : "",
+  "homeNumber$" : 0,
+  "homeZipCode$" : 0,
+  "homeCity$" : "",
+  "homeCountry$": "",
+  "homeAddress": "",
+  "date$": "",
+  "price$": 0.0,
+  "commission$":0.0, 
+  "addHome$": 0
 }

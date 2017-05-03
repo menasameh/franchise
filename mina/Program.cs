@@ -43,27 +43,23 @@ namespace mina
                         return json;
                 });
 
-            Handle.GET("/mina/office/getJson/{?}", (string id) =>
-            {
-                var json = new office();
-                json.Data = DbHelper.FromID(DbHelper.Base64DecodeObjectID(id));
-                return json;
-            });
-
 
             Handle.GET("/mina/office/{?}", (string id) =>
             {
-                var json = new office
+                return Db.Scope(() =>
                 {
-                    Data = DbHelper.FromID(DbHelper.Base64DecodeObjectID(id))
-                };
+                    var json = new office
+                    {
+                        Data = DbHelper.FromID(DbHelper.Base64DecodeObjectID(id))
+                    };
 
-                if (Session.Current == null)
-                {
-                    Session.Current = new Session(SessionOptions.PatchVersioning);
-                }
-                json.Session = Session.Current;
-                return json;
+                    if (Session.Current == null)
+                    {
+                        Session.Current = new Session(SessionOptions.PatchVersioning);
+                    }
+                    json.Session = Session.Current;
+                    return json;
+                });
             });
         }
     }

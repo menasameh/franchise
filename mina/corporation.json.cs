@@ -28,8 +28,6 @@ namespace mina
                     country = "",
                     corp = (Corporation) Data
                 };
-                OfficesElementJson newOffice = (OfficesElementJson) Self.GET("/mina/office/getJson/" + office.GetObjectID());
-                Offices.Add(newOffice);
             });
         }
     }
