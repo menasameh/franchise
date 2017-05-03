@@ -1,40 +1,70 @@
 ﻿<link href="style.css" rel="stylesheet" />
+<link rel="import" href="/sys/polymer/polymer.html">
 
 <template>
     <template is="dom-bind">
         <h2>Welcome to {{model.name}}</h2>
         <h3>Franchise Offices</h3>
         <label>Sort on:</label>
-        <button>number of homes</button>
-        <button>total commission</button>
-        <button>average commission</button>
-        <button>trend</button>
+        <button value="{{model.sorting$::click}}" onmousedown="this.value = 'totalSold'">number of homes</button>
+        <button value="{{model.sorting$::click}}" onmousedown="this.value = 'totalCom'">total commission</button>
+        <button value="{{model.sorting$::click}}" onmousedown="this.value = 'avgCom'">average commission</button>
+        <button value="{{model.sorting$::click}}" onmousedown="this.value = 'trend'">trend</button>
+        
+        <hr />
 
-        <hr />
-        <table>
-            <thead>
-                <tr>
-                    <td>Name</td>
-                    <td>Total Sold Homes</td>
-                    <td>Total Commission</td>
-                    <td>Average Commission</td>
-                    <td>Trend</td>
-                </tr>
-            </thead>
-            <template is="dom-repeat" items="{{model.offices}}">
-                <tr>
-                    <td><a href="/mina/office/{{item.ID}}">{{item.name}}</a></td>
-                    <td>{{item.totalSold}}</td>
-                    <td>{{item.totalCom}}</td>
-                    <td>{{item.avgCom}}</td>
-                    <td>{{item.trend}}</td>
-                </tr>
+        <offices-list offices="{{model.offices}}" sorting="{{model.sorting$}}"></offices-list>
+
+        <dom-module id="offices-list">
+
+            <template>
+                <link href="/start/style.css" rel="stylesheet" />
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Total Sold Homes</td>
+                            <td>Total Commission</td>
+                            <td>Average Commission</td>
+                            <td>Trend</td>
+                        </tr>
+                    </thead>
+                    <template is="dom-repeat" items="{{offices}}" sort="{{sorting}}">
+                        <tr>
+                            <td><a href="/mina/office/{{item.ID}}">{{item.name}}</a></td>
+                            <td>{{item.totalSold}}</td>
+                            <td>{{item.totalCom}}</td>
+                            <td>{{item.avgCom}}</td>
+                            <td>{{item.trend}}</td>
+                        </tr>
+                    </template>
+                </table>
             </template>
-        </table>
-        <hr />
-            <h3>new Office</h3>
-            <label>Name : </label>
-            <input value="{{model.newOfficeName$::input}}">
-            <button value="{{model.save$::click}}" onmousedown="++this.value">Create</button>
-    </template>
+
+    <script>
+        Polymer({
+            is: "offices-list",
+            totalSold: function (item1, item2) { return item2.totalSold - item1.totalSold },
+            totalCom: function (item1, item2) { return item2.totalCom - item1.totalCom },
+            avgCom: function (item1, item2) { return item2.avgCom - item1.avgCom },
+            trend: function (item1, item2) { return item2.trend - item1.trend },
+            ready: function () {},
+            properties: {
+                offices: Array,
+                sorting: String
+            }
+        });
+    </script>
+    </dom-module>
+
+
+
+
+    <hr />
+    <h3>new Office</h3>
+    <label>Name : </label>
+    <input value="{{model.newOfficeName$::input}}">
+    <button value="{{model.save$::click}}" onmousedown="++this.value">Create</button>
+</template>
+
 </template>
