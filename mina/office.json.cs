@@ -29,13 +29,11 @@ namespace mina
         {
             Transaction.Commit();
         }
-
-
+        
         void Handle(Input.addHome action)
         {
             Db.Transact(() =>
             {
-
                 Home home = new Home
                 {
                     name = homeName,
@@ -51,6 +49,5 @@ namespace mina
                 };
             });
         }
-
     }
 }

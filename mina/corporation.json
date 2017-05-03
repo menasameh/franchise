@@ -1,7 +1,6 @@
 {
   "Html": "/start/corpView.html",
   "name": "",
-  "save$": 0,
   "newOfficeName$": "",
   "offices": [
     {
@@ -14,5 +13,6 @@
       "trend": 0
     }
   ],
+  "save$": 0,
   "sorting$": ""
 }

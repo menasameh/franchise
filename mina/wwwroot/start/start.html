@@ -3,21 +3,24 @@
 <template>
     <template is="dom-bind">
         <h2>Welcome</h2>
-        <h3>Create new Corporation</h3>
-        <label>Name : </label>
-        <input value="{{model.newCorpName$::input}}">
-        <button value="{{model.save$::click}}" onmousedown="++this.value">Create</button>
-
-        <hr />
         <h3>Corporations:</h3>
+
         <ul>
             <template is="dom-repeat" items="{{model.corps}}">
                 <li><a href="/mina/corp/{{item.ID}}">{{item.name}}</a></li>
             </template>
-
         </ul>
-    </template>
-   
 
+
+        <hr />
+
+
+        <h3>Create new Corporation</h3>
+
+        <label>Name : </label>
+        <input value="{{model.newCorpName$::input}}">
+        <button value="{{model.save$::click}}" onmousedown="++this.value">Create</button>
+
+    </template>
 </template>
 

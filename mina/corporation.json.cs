@@ -5,7 +5,6 @@ namespace mina
 {
     partial class corporation : Json, IExplicitBound<Corporation>
     {
-
         static corporation()
         {
             DefaultTemplate.Html.Bind = null;
@@ -13,7 +12,6 @@ namespace mina
             DefaultTemplate.newOfficeName.Bind = null;
             DefaultTemplate.sorting.Bind = null;
         }
-
 
         void Handle(Input.save action)
         {

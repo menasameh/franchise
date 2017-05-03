@@ -1,6 +1,7 @@
 ﻿<link href="style.css" rel="stylesheet" />
 <link rel="import" href="/sys/polymer/polymer.html">
 
+
 <template>
     <template is="dom-bind">
         <h2>Welcome to {{model.name}}</h2>
@@ -11,12 +12,14 @@
         <button value="{{model.sorting$::click}}" onmousedown="this.value = 'avgCom'">average commission</button>
         <button value="{{model.sorting$::click}}" onmousedown="this.value = 'trend'">trend</button>
         
+
         <hr />
+
 
         <offices-list offices="{{model.offices}}" sorting="{{model.sorting$}}"></offices-list>
 
-        <dom-module id="offices-list">
 
+        <dom-module id="offices-list">
             <template>
                 <link href="/start/style.css" rel="stylesheet" />
                 <table>
@@ -41,30 +44,29 @@
                 </table>
             </template>
 
-    <script>
-        Polymer({
-            is: "offices-list",
-            totalSold: function (item1, item2) { return item2.totalSold - item1.totalSold },
-            totalCom: function (item1, item2) { return item2.totalCom - item1.totalCom },
-            avgCom: function (item1, item2) { return item2.avgCom - item1.avgCom },
-            trend: function (item1, item2) { return item2.trend - item1.trend },
-            ready: function () {},
-            properties: {
-                offices: Array,
-                sorting: String
-            }
-        });
-    </script>
-    </dom-module>
+            <script>
+                Polymer({
+                    is: "offices-list",
+                    totalSold: function (item1, item2) { return item2.totalSold - item1.totalSold },
+                    totalCom: function (item1, item2) { return item2.totalCom - item1.totalCom },
+                    avgCom: function (item1, item2) { return item2.avgCom - item1.avgCom },
+                    trend: function (item1, item2) { return item2.trend - item1.trend },
+                    properties: {
+                        offices: Array,
+                        sorting: String
+                    }
+                });
+            </script>
+        </dom-module>
 
 
+        <hr />
 
 
-    <hr />
-    <h3>new Office</h3>
-    <label>Name : </label>
-    <input value="{{model.newOfficeName$::input}}">
-    <button value="{{model.save$::click}}" onmousedown="++this.value">Create</button>
-</template>
+        <h3>new Office</h3>
+        <label>Name : </label>
+        <input value="{{model.newOfficeName$::input}}">
+        <button value="{{model.save$::click}}" onmousedown="++this.value">Create</button>
+    </template>
 
 </template>

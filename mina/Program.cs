@@ -12,7 +12,6 @@ namespace mina
             Application.Current.Use(new HtmlFromJsonProvider());
             Application.Current.Use(new PartialToStandaloneHtmlProvider());
 
-
             Handle.GET("/mina/start",
                 () =>
                 {
@@ -44,7 +43,6 @@ namespace mina
                 json.Session = Session.Current;
                 return json;
             });
-
 
             Handle.GET("/mina/office/{?}", (string id) =>
             {

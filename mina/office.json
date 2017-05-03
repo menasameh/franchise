@@ -7,6 +7,7 @@
   "city$" : "",
   "country$": "",
   "address": "",
+
   "homes": [
     {
       "date": "",
@@ -16,6 +17,7 @@
     }
   ],
   "saveSettings$": 0,
+  "corpID": "",
 
   "homeName$": "",
   "homeStreet$" : "",
@@ -26,6 +28,7 @@
   "homeAddress": "",
   "date$": "",
   "price$": 0.0,
-  "commission$":0.0, 
+  "commission$": 0.0, 
+
   "addHome$": 0
 }

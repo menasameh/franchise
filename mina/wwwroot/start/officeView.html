@@ -2,8 +2,8 @@
 
 <template>
     <template is="dom-bind">
-        <a href="/mina/corp">< < back to Corporation</a>
-        <h2>Edit {{model.name$}} Settings:</h2>
+        <a href="/mina/corp/{{model.corpID}}">< < back to Corporation</a>
+        <h2>Edit {{model.name$}}'s Settings:</h2>
 
 
         <label>Name : </label>
@@ -36,13 +36,10 @@
         <button value="{{model.saveSettings$::click}}" onmousedown="++this.value">Save</button>     
 
 
-
-
-
-
         <h2>Register new Home:</h2>
-
         <h4>Home Info</h4>
+
+
         <label>Name : </label>
         <input Value="{{model.homeName$::input}}" />
         <br />
@@ -70,9 +67,11 @@
         <label>Address : {{model.homeAddress}}</label>
         <br />
 
+
         <h4>Transaction Info</h4>
 
-        <label>Date (Format:YYYY-MM-DD) : </label>
+
+        <label>Date (Format:YYYY-MM-dd) : </label>
         <input Value="{{model.date$::input}}" />
         <br />
 
@@ -89,8 +88,8 @@
         
         <hr />
             
-        <table>
 
+        <table>
             <thead>
                 <tr>
                     <td>Date</td>
@@ -99,7 +98,6 @@
                     <td>Address</td>
                 </tr>
             </thead>
-
 
             <template is="dom-repeat" items="{{model.homes}}">
                     <tr>
@@ -110,7 +108,5 @@
                     </tr>
             </template>
         </table>
-
-
     </template>
 </template>
