@@ -3,5 +3,15 @@
   "name": "",
   "save$": 0,
   "newOfficeName$": "",
-  "Offices": [ { } ]
+  "Offices": [
+    {
+      "Html": "/start/officeView.html",
+      "name": "",
+      "ID": "",
+      "totalSold": 0,
+      "totalCom": 0,
+      "avgCom": 0,
+      "trend": 0
+    }
+  ]
 }

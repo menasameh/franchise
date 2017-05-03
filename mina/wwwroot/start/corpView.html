@@ -1,6 +1,7 @@
 ﻿<template>
     <template is="dom-bind">
-        <h1>Welcome to {{model.name}} Franchise Offices</h1>
+        <h1>Welcome to {{model.name}}</h1>
+        <h2>Franchise Offices</h2>
         <label>Sort on:</label>
         <button>number of homes</button>
         <button>total commission</button>
@@ -8,12 +9,19 @@
         <button>trend</button>
 
         <hr />
-
+        
         <template is="dom-repeat" items="{{model.Offices}}">
-            <div>
-                <starcounter-include partial="{{item}}"></starcounter-include>
-            </div>
+            <table>
+                <tr>
+                    <td><a href="/mina/office/{{item.ID}}">{{item.name}}</a></td>
+                    <td>{{item.totalSold}}</td>
+                    <td>{{item.totalCom}}</td>
+                    <td>{{item.avgCom}}</td>
+                    <td>{{item.trend}}</td>
+                </tr>
+            </table>
         </template>
+        
         <hr />
             <h3>new Office</h3>
             <label>Name : </label>

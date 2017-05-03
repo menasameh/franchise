@@ -2,8 +2,17 @@ using Starcounter;
 
 namespace mina
 {
-    partial class corporation : Json
+    partial class corporation : Json, IExplicitBound<Corporation>
     {
+       
+
+        static corporation()
+        {
+            DefaultTemplate.Html.Bind = null;
+            DefaultTemplate.save.Bind = null;
+            DefaultTemplate.newOfficeName.Bind = null;
+        }
+
 
         void Handle(Input.save action)
         {
@@ -19,7 +28,7 @@ namespace mina
                     country = "",
                     corp = (Corporation) Data
                 };
-                office newOffice = (office) Self.GET("/mina/corp/" + office.GetObjectID());
+                OfficesElementJson newOffice = (OfficesElementJson) Self.GET("/mina/office/getJson/" + office.GetObjectID());
                 Offices.Add(newOffice);
             });
         }

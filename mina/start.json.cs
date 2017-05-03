@@ -3,7 +3,7 @@ using Starcounter;
 
 namespace mina
 {
-    partial class corp : Json
+    partial class start : Json
     {
         void Handle(Input.save action)
         {

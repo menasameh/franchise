@@ -62,8 +62,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="corp.json.cs">
-      <DependentUpon>corp.json</DependentUpon>
+    <Compile Include="start.json.cs">
+      <DependentUpon>start.json</DependentUpon>
     </Compile>
     <Compile Include="corporation.json.cs">
       <DependentUpon>corporation.json</DependentUpon>
@@ -79,7 +79,7 @@
     <TypedJSON Include="corporation.json">
       <Generator>MsBuild:Compile</Generator>
     </TypedJSON>
-    <TypedJSON Include="corp.json">
+    <TypedJSON Include="start.json">
       <Generator>MsBuild:Compile</Generator>
     </TypedJSON>
     <TypedJSON Include="office.json">
