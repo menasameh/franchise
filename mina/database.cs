@@ -53,8 +53,33 @@ namespace mina
         public decimal totalSold { get { return Db.SQL<decimal>("SELECT COUNT(H) FROM Home H WHERE H.office = ?", this).First; } }
         public double totalCom { get { return Db.SQL<double>("SELECT SUM(H.commission) FROM Home H WHERE H.office = ?", this).First; } }
         public double avgCom { get { return Db.SQL<double>("SELECT AVG(H.commission) FROM Home H WHERE H.office = ?", this).First; } }
-        public decimal trend { get { return Db.SQL<decimal>("SELECT COUNT(H) FROM Home H WHERE H.office = ?", this).First; } }
         public string ID { get { return this.GetObjectID(); } }
+
+        public decimal trend { get {
+
+                if (totalSold < 2)
+                    return 0;
+
+                var sortedHomes = Db.SQL<Home>("SELECT H FROM Home H WHERE H.office = ?", this);
+                IRowEnumerator<Home> iter = sortedHomes.GetEnumerator();
+                iter.MoveNext();
+                Home curr = iter.Current;
+
+                double sum = 0;
+                while(iter.MoveNext())
+                {
+                    Home next = iter.Current;
+                    var yDiff = next.commission - curr.commission;
+                    var xDiff = 1;// (next.date - curr.date).TotalDays;
+                    sum += yDiff/xDiff;
+                    curr = next;
+                }
+                var average = (int)Math.Round(sum /((double)totalSold-1));
+                return (decimal)average;
+            } }
+
+
+        
     }
 
 

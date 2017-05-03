@@ -1,16 +1,17 @@
 using Starcounter;
+using System.Collections;
 
 namespace mina
 {
     partial class corporation : Json, IExplicitBound<Corporation>
     {
        
-
         static corporation()
         {
             DefaultTemplate.Html.Bind = null;
             DefaultTemplate.save.Bind = null;
             DefaultTemplate.newOfficeName.Bind = null;
+            DefaultTemplate.sortType.Bind = null;
         }
 
 
@@ -20,15 +21,20 @@ namespace mina
             {
                 Office office = new Office
                 {
-                    name = action.App.newOfficeName,
+                    name = newOfficeName,
                     street = "",
                     number = 0,
                     zipCode = 0,
                     city = "",
                     country = "",
-                    corp = (Corporation) Data
+                    corp = (Corporation)Data
                 };
             });
+        }
+
+        void Handle(Input.sortType action)
+        {
+            
         }
     }
 }
