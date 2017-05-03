@@ -16,7 +16,11 @@ namespace mina
             Handle.GET("/mina/start",
                 () =>
                 {
-                    var json = new start();
+                    var data = Db.SQL<Corporation>("SELECT C FROM Corporation C");
+                    var json = new start
+                    {
+                        Data = data
+                    };
                     if (Session.Current == null)
                     {
                         Session.Current = new Session(SessionOptions.PatchVersioning);

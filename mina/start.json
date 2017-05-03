@@ -1,5 +1,11 @@
 {
   "Html": "/start/start.html",
   "newCorpName$": "",
-  "save$": 0
+  "save$": 0,
+  "corps": [
+      {
+        "ID": "",
+        "name": ""
+      }
+  ]
 }

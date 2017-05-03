@@ -62,14 +62,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="corporation.json.cs">
+      <DependentUpon>corporation.json</DependentUpon>
+    </Compile>
     <Compile Include="home.json.cs">
       <DependentUpon>home.json</DependentUpon>
     </Compile>
     <Compile Include="start.json.cs">
       <DependentUpon>start.json</DependentUpon>
-    </Compile>
-    <Compile Include="corporation.json.cs">
-      <DependentUpon>corporation.json</DependentUpon>
     </Compile>
     <Compile Include="database.cs" />
     <Compile Include="office.json.cs">
@@ -79,9 +79,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <TypedJSON Include="corporation.json">
-      <Generator>MsBuild:Compile</Generator>
-    </TypedJSON>
     <TypedJSON Include="start.json">
       <Generator>MsBuild:Compile</Generator>
     </TypedJSON>
@@ -89,6 +86,9 @@
       <Generator>MsBuild:Compile</Generator>
     </TypedJSON>
     <TypedJSON Include="home.json">
+      <Generator>MsBuild:Compile</Generator>
+    </TypedJSON>
+    <TypedJSON Include="corporation.json">
       <Generator>MsBuild:Compile</Generator>
     </TypedJSON>
     <None Include="wwwroot\start\start.html" />
