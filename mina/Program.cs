@@ -19,7 +19,7 @@ namespace mina
                     var data = Db.SQL<Corporation>("SELECT C FROM Corporation C");
                     var json = new start
                     {
-                        Data = data
+                        corps=data
                     };
                     if (Session.Current == null)
                     {
@@ -30,22 +30,20 @@ namespace mina
                 });
 
 
-            Handle.GET("/mina/corp",
-                () =>
+            Handle.GET("/mina/corp/{?}", (string id) =>
+            {
+                var json = new corporation
                 {
-                        var corp = Db.SQL<Corporation>("SELECT C FROM Corporation C").First;
-                        var json = new corporation
-                        {
-                            Data = corp                            
-                        };
+                    Data = (Corporation)DbHelper.FromID(DbHelper.Base64DecodeObjectID(id))
+                };
 
-                        if (Session.Current == null)
-                        {
-                            Session.Current = new Session(SessionOptions.PatchVersioning);
-                        }
-                        json.Session = Session.Current;
-                        return json;
-                });
+                if (Session.Current == null)
+                {
+                    Session.Current = new Session(SessionOptions.PatchVersioning);
+                }
+                json.Session = Session.Current;
+                return json;
+            });
 
 
             Handle.GET("/mina/office/{?}", (string id) =>
