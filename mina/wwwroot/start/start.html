@@ -3,13 +3,17 @@
 <template>
     <template is="dom-bind">
         <h2>Welcome</h2>
-        <h3>Create main Corporation</h3>
+        <h3>Create new Corporation</h3>
         <label>Name : </label>
         <input value="{{model.newCorpName$::input}}">
         <button value="{{model.save$::click}}" onmousedown="++this.value">Create</button>
     </template>
    <hr />
-   <a href="/mina/corp">goto corporation</a>
+    <h3>Corporations:</h3>
+    <ul>
+        <li><a href="/mina/corp">goto corporation</a></li>
+    </ul>
+   
 
 </template>
 

@@ -1,4 +1,6 @@
-﻿<template>
+﻿<link href="style.css" rel="stylesheet" />
+
+<template>
     <template is="dom-bind">
         <a href="/mina/corp">< < back to Corporation</a>
         <h2>Edit {{model.name$}} Settings:</h2>
@@ -87,16 +89,27 @@
         
         <hr />
             
-        <template is="dom-repeat" items="{{model.homes}}">
-            <table>
+        <table>
+
+            <thead>
                 <tr>
-                    <td>{{item.date}}</td>
-                    <td>{{item.price}}</td>
-                    <td>{{item.commission}}</td>
-                    <td>{{item.address}}</td>
+                    <td>Date</td>
+                    <td>Sales Price</td>
+                    <td>Commission</td>
+                    <td>Address</td>
                 </tr>
-            </table>
-        </template>
+            </thead>
+
+
+            <template is="dom-repeat" items="{{model.homes}}">
+                    <tr>
+                        <td>{{item.date}}</td>
+                        <td>{{item.price}}</td>
+                        <td>{{item.commission}}</td>
+                        <td>{{item.address}}</td>
+                    </tr>
+            </template>
+        </table>
 
 
     </template>

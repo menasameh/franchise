@@ -1,7 +1,9 @@
-﻿<template>
+﻿<link href="style.css" rel="stylesheet" />
+
+<template>
     <template is="dom-bind">
-        <h1>Welcome to {{model.name}}</h1>
-        <h2>Franchise Offices</h2>
+        <h2>Welcome to {{model.name}}</h2>
+        <h3>Franchise Offices</h3>
         <label>Sort on:</label>
         <button>number of homes</button>
         <button>total commission</button>
@@ -9,9 +11,17 @@
         <button>trend</button>
 
         <hr />
-        
-        <template is="dom-repeat" items="{{model.offices}}">
-            <table>
+        <table>
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Total Sold Homes</td>
+                    <td>Total Commission</td>
+                    <td>Average Commission</td>
+                    <td>Trend</td>
+                </tr>
+            </thead>
+            <template is="dom-repeat" items="{{model.offices}}">
                 <tr>
                     <td><a href="/mina/office/{{item.ID}}">{{item.name}}</a></td>
                     <td>{{item.totalSold}}</td>
@@ -19,9 +29,8 @@
                     <td>{{item.avgCom}}</td>
                     <td>{{item.trend}}</td>
                 </tr>
-            </table>
-        </template>
-        
+            </template>
+        </table>
         <hr />
             <h3>new Office</h3>
             <label>Name : </label>
